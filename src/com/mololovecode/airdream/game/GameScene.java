@@ -2,6 +2,8 @@ package com.mololovecode.airdream.game;
 
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.util.Log;
+
 import com.hifreshday.android.pge.entity.scene.BitmapBgScreen;
 import com.hifreshday.android.pge.entity.shape.Shape;
 import com.mololovecode.airdream.game.res.BitmapRes;
@@ -56,6 +58,11 @@ public class GameScene extends BitmapBgScreen {
 	
 	public boolean isCollision(Shape shape) {
 		return enemyPlaneFooSpriteHolder.isCollision(shape);
+	}
+
+	public void destoryShip() {
+		Log.i("MOLO_DEBUG", "ship collision enemy ... ");
+		
 	}
 
 }

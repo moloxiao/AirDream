@@ -71,6 +71,17 @@ public class ShipSprite extends Sprite {
 	}
 	
 	private void updateCollosion() {
+		updateFireEnemyCollosion();
+		updateShipCollosion();
+	}
+
+	private void updateShipCollosion() {
+		if(((GameScene)getParent()).isCollision(this)) {
+			((GameScene)getParent()).destoryShip();
+		}
+	}
+
+	private void updateFireEnemyCollosion() {
 		if( children != null && children.size()>0 ) {
 			for(IEntity entity : children) {
 				if(((GameScene)getParent()).isCollision((Shape)entity)){
@@ -78,9 +89,6 @@ public class ShipSprite extends Sprite {
 					entity.setNeedRemove(true);
 				}
 			}
-		}
-		if(((GameScene)getParent()).isCollision(this)) {
-			Log.i("MOLO_DEBUG", "ship collision enemy ... ");
 		}
 	}
 
